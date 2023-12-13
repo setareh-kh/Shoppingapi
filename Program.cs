@@ -2,6 +2,8 @@ using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Shoppingapi.Models;
 using Newtonsoft.Json;
+using Repositories;
+using Shoppingapi.Repositories.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,7 @@ builder.Services.AddSwaggerGen();
 var connectionString=builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ShoppingapiContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddScoped<IUserRepository,UserRepository>();
 
 var app = builder.Build();
 
