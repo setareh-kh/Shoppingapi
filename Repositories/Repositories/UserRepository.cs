@@ -1,8 +1,7 @@
 using AutoMapper;
-using Dtos.Requests;
+using Shoppingapi.Dtos.Requests;
 using Microsoft.EntityFrameworkCore;
 using Repositories;
-using Shoppingapi.Dtos.Requests;
 using Shoppingapi.Models;
 
 namespace Shoppingapi.Repositories.Repositories

@@ -1,4 +1,3 @@
-using Dtos.Requests;
 using Shoppingapi.Dtos.Requests;
 using Shoppingapi.Models;
 
