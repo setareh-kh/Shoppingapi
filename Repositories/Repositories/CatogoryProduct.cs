@@ -1,3 +1,4 @@
+using AutoMapper;
 using Shoppingapi.Models;
 
 namespace Shoppingapi.Repositories.Repositories
@@ -5,14 +6,17 @@ namespace Shoppingapi.Repositories.Repositories
     public class CatogoryProduct
     {
 
-        private ShoppingapiContext _context;
-        public CatogoryProduct(ShoppingapiContext context)
+        private readonly ShoppingapiContext _context;
+        private IMapper _mapper;
+
+        public CatogoryProduct(ShoppingapiContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         public async Task<Product> StoreAsync()
         {
-
+            
         }
         public async Task<Product?> GetAsync()
         {

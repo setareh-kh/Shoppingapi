@@ -19,6 +19,7 @@ namespace Shoppingapi.Models
         public required bool Active { get; set; }
         [Required]
         public required DateTime CreateAt { get; set; }
+        public  DateTime? UpdateDate { get; set; }
         //Fk 
         [Required]
         public required int CatogoryProductId { get; set; }

@@ -11,7 +11,8 @@ namespace Shoppingapi.Mapper
             //mapping requests dtos to entity class
             CreateMap<StoreUserDto,User>();
             CreateMap<UpdateUserDto,User>();
-            CreateMap<StoreProductAdminDto,Product>();
+            CreateMap<StoreProductDto,Product>();
+            CreateMap<UpdateProductDto,Product>();
             
 
         }

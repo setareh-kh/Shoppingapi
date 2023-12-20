@@ -3,7 +3,7 @@ using Shoppingapi.Models;
 
 namespace Shoppingapi.Dtos.Requests
 {
-    public class StoreProductAdminDto
+    public class StoreProductDto
     {
         [Required, MaxLength(250)]
         public required string Name { get; set; }
