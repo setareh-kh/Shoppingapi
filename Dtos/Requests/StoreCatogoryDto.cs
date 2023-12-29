@@ -1,10 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Shoppingapi.Models
+namespace Shoppingapi.Dtos.Requests
 {
-    public class CatogoryProduct
+    public class StoreCatogoryDto
     {
-        public int Id { get; set; }
         [Required, MaxLength(250)]
         public required string Name { get; set; }
     }

@@ -1,4 +1,5 @@
 using AutoMapper;
+using Shoppingapi.Dtos.Requests;
 using Shoppingapi.Models;
 
 namespace Shoppingapi.Repositories.Repositories
@@ -14,19 +15,17 @@ namespace Shoppingapi.Repositories.Repositories
             _context = context;
             _mapper = mapper;
         }
-        public async Task<Product> StoreAsync()
-        {
-            
+        public async Task<CatogoryProduct> StoreAsync(StoreCatogoryDto storeCatogoryDto)
+        {   
+            CatogoryProduct newCatogory=_mapper.Map<CatogoryProduct>(storeCatogoryDto);
+            await _context.AddAsync(newCatogory);
+            return newCatogory;
         }
-        public async Task<Product?> GetAsync()
+        public async Task<CatogoryProduct?> GetAsync(int id)
         {
-
+            CatogoryProduct catogory=await _context.g
         }
-        public async Task<List<Product>?> GetAllAsync()
-        {
-
-        }
-        public async Task<Product> UpdateAsync()
+        public async Task<List<CatogoryProduct>?> GetAllAsync()
         {
 
         }
