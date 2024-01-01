@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Repositories;
 using Shoppingapi.Dtos.Requests;
+using Shoppingapi.Repositories;
 
 namespace Controllers
 {
@@ -9,9 +9,11 @@ namespace Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-        public UserController(IUserRepository userRepository)
+        private readonly IProductRepository _productRepository;
+        public UserController(IUserRepository userRepository,IProductRepository productRepository)
         {
             _userRepository = userRepository;
+            _productRepository=productRepository;
 
         }
         [HttpPost]
@@ -29,12 +31,34 @@ namespace Controllers
             return Ok(result != null ? result : "Login is faild");
         }
         [HttpPost]
-        [Route("Update/{Id}")]
+        [Route("UpdateUser/{Id}")]
         public async Task<IActionResult> UpdateUserAsync(int Id,UpdateUserDto updateUserDto)
         {
             var result = await _userRepository.UpdateAsync(Id, updateUserDto);
             return Ok(result==true?"update is successfully":"update faild");
         }
+        [HttpGet]
+        [Route("ShowAllProduct")]
+        public async Task<IActionResult> ShowAllProductsAsync()
+        {
+            var products=await _productRepository.GetAllAsync();
+            return Ok(products?.Count>0 ? products : "No Any Products"); 
+        }
+        [HttpGet]
+        [Route("GetByNameProduct")]
+        public async Task<IActionResult> GetByNameProductAsync(string name)
+        {
+            var products=await _productRepository.GetByNameAsync(name);
+            return Ok(products?.Count>0 ? products : "No Any Products"); 
+        }
+        [HttpGet]
+        [Route("FilterOnPrice/{maxPrice}/{minPrice}")]
+        public async Task<IActionResult> FilterOnPriceAsync(int maxPrice,int minPrice)
+        {
+            var products=await _productRepository.FilterOnPriceAsync(maxPrice,minPrice);
+            return Ok(products?.Count>0 ? products : "No Any Products"); 
+        }
+
 
     }
 }

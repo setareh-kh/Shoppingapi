@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Shoppingapi.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,7 +16,7 @@ namespace Shoppingapi.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "CatogoryProduct",
+                name: "CatogoryProducts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -26,7 +26,7 @@ namespace Shoppingapi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CatogoryProduct", x => x.Id);
+                    table.PrimaryKey("PK_CatogoryProducts", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -65,15 +65,16 @@ namespace Shoppingapi.Migrations
                     Available = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     Active = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     CatogoryProductId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Products_CatogoryProduct_CatogoryProductId",
+                        name: "FK_Products_CatogoryProducts_CatogoryProductId",
                         column: x => x.CatogoryProductId,
-                        principalTable: "CatogoryProduct",
+                        principalTable: "CatogoryProducts",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -95,7 +96,7 @@ namespace Shoppingapi.Migrations
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "CatogoryProduct");
+                name: "CatogoryProducts");
         }
     }
 }

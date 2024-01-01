@@ -32,7 +32,7 @@ namespace Shoppingapi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CatogoryProduct");
+                    b.ToTable("CatogoryProducts");
                 });
 
             modelBuilder.Entity("Shoppingapi.Models.Product", b =>
@@ -66,6 +66,9 @@ namespace Shoppingapi.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 

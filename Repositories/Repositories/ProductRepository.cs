@@ -5,7 +5,7 @@ using Shoppingapi.Models;
 
 namespace Shoppingapi.Repositories.Repositories
 {
-    public class ProductRepository:IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly ShoppingapiContext _context;
         private IMapper _mapper;
@@ -27,6 +27,17 @@ namespace Shoppingapi.Repositories.Repositories
             Product? product = await _context.Products.FindAsync(id);
             return product;
         }
+        public async Task<List<Product>?> GetByNameAsync(string name)
+        {
+            var products = await _context.Products.Where(p => p.Name == name).ToListAsync();
+            return products;
+        }
+        public async Task<List<Product>?> FilterOnPriceAsync(int maxPrice,int minPrice=0 )
+        {
+            var products = await _context.Products.Where(p => p.Price>=minPrice && p.Price<=maxPrice).ToListAsync();
+            return products;
+        }
+
         public async Task<List<Product>?> GetAllAsync()
         {
             List<Product>? products = await _context.Products.ToListAsync();

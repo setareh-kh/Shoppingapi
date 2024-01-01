@@ -1,8 +1,6 @@
-using System.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Shoppingapi.Models;
 using Newtonsoft.Json;
-using Repositories;
 using Shoppingapi.Repositories.Repositories;
 using Shoppingapi.Repositories;
 

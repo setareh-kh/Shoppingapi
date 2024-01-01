@@ -1,7 +1,7 @@
 using Shoppingapi.Dtos.Requests;
 using Shoppingapi.Models;
 
-namespace Repositories
+namespace Shoppingapi.Repositories
 {
     public interface IUserRepository
     {
