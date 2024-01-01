@@ -4,6 +4,7 @@ using Shoppingapi.Models;
 using Newtonsoft.Json;
 using Repositories;
 using Shoppingapi.Repositories.Repositories;
+using Shoppingapi.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,8 @@ var connectionString=builder.Configuration.GetConnectionString("DefaultConnectio
 builder.Services.AddDbContext<ShoppingapiContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<IUserRepository,UserRepository>();
+builder.Services.AddScoped<IProductRepository,ProductRepository>();
+builder.Services.AddScoped<ICatogoryRepository,CatogoryProductRepository>();
 
 var app = builder.Build();
 

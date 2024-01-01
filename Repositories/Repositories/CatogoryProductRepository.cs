@@ -5,7 +5,7 @@ using Shoppingapi.Models;
 
 namespace Shoppingapi.Repositories.Repositories
 {
-    public class CatogoryProductRepository
+    public class CatogoryProductRepository:ICatogoryRepository
     {
 
         private readonly ShoppingapiContext _context;
@@ -20,6 +20,7 @@ namespace Shoppingapi.Repositories.Repositories
         {
             CatogoryProduct newCatogory = _mapper.Map<CatogoryProduct>(storeCatogoryDto);
             await _context.CatogoryProducts.AddAsync(newCatogory);
+            await _context.SaveChangesAsync();
             return newCatogory;
         }
         public async Task<CatogoryProduct?> GetAsync(int id)
