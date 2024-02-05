@@ -3411,11 +3411,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Backend_class\\Githubrepositories\\Shoppingapi\\Shoppingapi.csproj",
+      "projectUniqueName": "e:\\Backend_class\\Githubrepositories\\Shoppingapi\\Shoppingapi.csproj",
       "projectName": "Shoppingapi",
-      "projectPath": "E:\\Backend_class\\Githubrepositories\\Shoppingapi\\Shoppingapi.csproj",
+      "projectPath": "e:\\Backend_class\\Githubrepositories\\Shoppingapi\\Shoppingapi.csproj",
       "packagesPath": "C:\\Users\\Star\\.nuget\\packages\\",
-      "outputPath": "E:\\Backend_class\\Githubrepositories\\Shoppingapi\\obj\\",
+      "outputPath": "e:\\Backend_class\\Githubrepositories\\Shoppingapi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Star\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3424,7 +3424,6 @@
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3493,6 +3492,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[7.0.15, 7.0.15]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[7.0.15, 7.0.15]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[7.0.15, 7.0.15]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[7.0.15, 7.0.15]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3501,7 +3518,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
